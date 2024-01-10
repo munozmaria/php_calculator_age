@@ -23,7 +23,7 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            
+
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -59,22 +59,18 @@
             color: white;
         }
 
-        label{
-            color:white;
+        label {
+            color: white;
         }
     </style>
 </head>
 
 <body>
-
-    
-
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="birth_date">Enter Your Date Of Birth :</label>
         <input type="date" id="birth_date" name="birth_date" value="">
         <button type="submit">Calculate</button>
     </form>
-
     <?php
     // Vérifie si la variable $_POST['birth_date'] est définie et non nulle
     if (isset($_POST['birth_date'])) {
@@ -109,7 +105,5 @@
         }
     }
     ?>
-
 </body>
-
 </html>
