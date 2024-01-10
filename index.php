@@ -9,6 +9,12 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
         }
 
         form {
@@ -17,6 +23,7 @@
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -49,12 +56,24 @@
         p {
             margin-top: 20px;
             font-weight: bold;
-            color: #333;
+            color: white;
+        }
+
+        label{
+            color:white;
         }
     </style>
 </head>
 
 <body>
+
+    
+
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for="birth_date">Enter Your Date Of Birth :</label>
+        <input type="date" id="birth_date" name="birth_date" value="">
+        <button type="submit">Calculate</button>
+    </form>
 
     <?php
     // Vérifie si la variable $_POST['birth_date'] est définie et non nulle
@@ -82,7 +101,7 @@
                 $age = $date_now->diff($birth_date)->y;
 
                 // Affiche l'âge
-                echo "<p>Votre âge est de " . $age . " ans.</p>";
+                echo "<p>Your age:  " . $age . "</p>";
             } else {
                 // Affiche un message si le format de la date de naissance est incorrect
                 echo "<p>Veuillez entrer une date valide au format AAAA-MM-JJ.</p>";
@@ -90,12 +109,6 @@
         }
     }
     ?>
-
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="birth_date">Votre date de naissance :</label>
-        <input type="date" id="birth_date" name="birth_date" value="">
-        <button type="submit">Calculer l'âge</button>
-    </form>
 
 </body>
 
